@@ -1,0 +1,28 @@
+{
+  "adapters": {
+    "java-debug-server": {
+      "name": "vscode-java",
+      "port": "${DAPPort}"
+    }
+  },
+  "configurations": {
+    "Java Attach": {
+      "adapter": "java-debug-server",
+      "configuration": {
+        "request": "attach",
+        "host": "${host}",
+        "port": "${port}",
+		"sourcePaths": [
+         "${workspaceRoot}/src/main/java",
+         "${workspaceRoot}/src/test/java"
+        ]
+      },
+      "breakpoints": {
+        "exception": {
+          "caught": "N",
+          "uncaught": "N"
+        }
+      }
+    }
+  }
+}
