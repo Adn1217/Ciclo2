@@ -9,8 +9,19 @@ public class App
     public static void main( String[] args ) throws Exception
     {
         System.out.println( "Hello World!" );
-        String luckyNumber = numeroSuerte();
-        System.out.println("Tu número de la suerte es el " + luckyNumber);
+        //String luckyNumber = numeroSuerte();
+        //System.out.println("Tu número de la suerte es el " + luckyNumber);
+        //double venta = precio();
+        //System.out.println("El precio de venta es: " + venta);
+
+        //String num = quitarCifras();
+        //System.out.println("El nuevo número es " + num);
+
+        //double vel_kmh = velocidad();
+        //System.out.println("La velocidad en m/s es " + vel_kmh);
+        
+        double hyp = pitagoras();
+        System.out.printf("La hipotenusa mide %.4f", hyp);
     }
 
     public static String numeroSuerte()
@@ -35,6 +46,52 @@ public class App
         }
         String numeroSuerte = Integer.toString(num_int);
         return numeroSuerte;
+    }
+
+    public static double precio ()
+    {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Inserte costo unitario del producto");
+       int costo_uni = sc.nextInt();
+       System.out.println("Inserte porcentaje de IVA [%]");
+       int iva = sc.nextInt(); 
+       double iva_d = iva / 100.0;
+       System.out.println("Inserte número de productos vendidos");
+       int num = sc.nextInt();
+       double venta = (1 + iva_d)*(num * costo_uni);
+       return venta;
+    }
+
+    public static String quitarCifras()
+    {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Ingrese número entero");
+       int num = sc.nextInt();
+       System.out.println("Ingrese número de cifras");
+       int m = sc.nextInt();
+       String num_str = String.valueOf(num);
+       String num_str2 = num_str.substring(0, num_str.length()-m);
+       return num_str2;
+    }
+
+    public static double velocidad()
+    {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Ingrese velocidad en km/h");
+       int vel_kmh = sc.nextInt();
+       double vel_ms = vel_kmh * (1000/3600.0);
+       return vel_ms;
+    }
+    
+    public static double pitagoras()
+    {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Ingrese longitud cateto 1");
+       int cat1 = sc.nextInt();
+       System.out.println("Ingrese longitud cateto 2");
+       int cat2 = sc.nextInt();
+       double hyp = Math.sqrt(Math.pow(cat1,2) + Math.pow(cat2,2));
+       return hyp;
     }
 }
 
