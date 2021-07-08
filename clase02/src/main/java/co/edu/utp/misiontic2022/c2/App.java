@@ -19,9 +19,14 @@ public class App
 
         //double vel_kmh = velocidad();
         //System.out.println("La velocidad en m/s es " + vel_kmh);
-        
-        double hyp = pitagoras();
-        System.out.printf("La hipotenusa mide %.4f", hyp);
+        //double hyp = pitagoras();
+        //System.out.printf("La hipotenusa mide %.4f", hyp);
+        MiPrimerClase mpc = new MiPrimerClase();
+        MiPrimerClase mpc_2 = new MiPrimerClase("EsteObjeto", 50);
+        System.out.printf("Valor del contador %s es: %d.\n", mpc.getNombre(), mpc.getContador());
+        System.out.printf("Valor del contador %s es: %d.\n", mpc_2.getNombre(), mpc_2.getContador());
+        mpc.setContador(10);
+        System.out.printf("Valor del contador %s es: %d.\n", mpc.getNombre(), mpc.getContador());
     }
 
     public static String numeroSuerte()
