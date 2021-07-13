@@ -4,7 +4,6 @@ public class carro extends vehiculo { //Hereda de la clase vehiculo.
     private Integer cilindraje;    
 
     public carro(){
-        super();
     }
     
     public carro(String color, Integer numSerie){

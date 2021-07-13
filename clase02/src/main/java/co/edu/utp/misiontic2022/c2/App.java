@@ -18,7 +18,7 @@ public class App
         //String num = quitarCifras();
         //System.out.println("El nuevo número es " + num);
 
-        double vel_kmh = ingVelocidad();
+        // double vel_kmh = ingVelocidad();
         /* OPCIÓN 1
         vel_kmh = Math.round(vel_kmh * 100.0)/100.0; // Redondeo a dos cifas decimales
         System.out.println("La velocidad en m/s es " + vel_kmh);
@@ -26,9 +26,9 @@ public class App
         String vel_kmh_str = String.valueOf(vel_kmh); // Pasar a String
         String mensaje = ("La velocidad en m/s es " + vel_kmh_str);
         --OPCIÓN 3*/
-        String mensaje = ("La velocidad en m/s es "
-                          + String.format("%.2f",vel_kmh));
-        JOptionPane.showMessageDialog(null,mensaje);
+        // String mensaje = ("La velocidad en m/s es "
+        //                   + String.format("%.2f",vel_kmh));
+        // JOptionPane.showMessageDialog(null,mensaje);
 
         //double hyp = pitagoras();
         //System.out.printf("La hipotenusa mide %.4f", hyp);
@@ -41,10 +41,15 @@ public class App
         // carro carro = new carro(); carro.setCilindraje(25);
         // System.out.printf("El cilindraje del carro es: %d\n", carro.getCilindraje());
         // System.out.printf("El color del carro es: %s\n", carro.getColor());
-        // vehiculo vehicle = new vehiculo("Verde", 12345);
-        // carro carro2 = new carro("Morado", 6789);
-        // System.out.printf("El color del carro 2 con número de serie %d es: %s\n", carro2.getnumSerie(), carro2.getColor());
+        vehiculo vehicle = new vehiculo("Verde", 12345);
+        carro carro2 = new carro("Morado", 6789);
+        System.out.printf("El color del carro 2 con número de serie %d es: %s\n", carro2.getnumSerie(), carro2.getColor());
+
+        carro carro3 = new carro("Rojo", 7898);
+        carro3.setcolorEstandar(colorEstandar.GrisMedellín);
+        System.out.printf("El color estandar del carro con número de serie %d es: %s\n", carro3.getnumSerie(), carro3.getcolorEstandar());
         carroMecanico Toyota = new carroMecanico();
+
         Toyota.setcapacidadTanque(45);
         System.out.println("La capacidad del tanque es: " + Toyota.getcapacidadTanque());
     }
