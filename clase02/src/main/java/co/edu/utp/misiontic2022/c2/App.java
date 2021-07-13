@@ -52,6 +52,33 @@ public class App
 
         Toyota.setcapacidadTanque(45);
         System.out.println("La capacidad del tanque es: " + Toyota.getcapacidadTanque());
+
+        carro[] carros = new carro[3];
+        carros[0] = new carro("Violeta", 4563);
+        carros[1] = new carro("Gris", 7894);
+        carros[2] = new carro("Negro", 7845);
+
+        carro[][] matrizCarros = new carro[2][1]; //No importa el tamaño de la instancia si se va a modificar después, se instancia con 2x1.
+        matrizCarros[0] = new carro[1]; //1era fila 1x1
+        matrizCarros[1] = new carro[2]; //2da fila 1x2
+        matrizCarros[0][0] = new carro("Verde", 8653);
+        matrizCarros[1][0] = new carro("Rojo", 6587);
+        matrizCarros[1][1] = new carro("Azul", 8743);
+        //Tamaño de matrizCarros queda [0]=1x1 [1]=1x2
+
+        System.out.println("----Inicio ciclos matriz---");
+        for (int j = 0; j < matrizCarros.length; j++){ //Número de filas.
+            System.out.println("---Fila "+ (j+1) +"------");
+            for(int i = 0; i < matrizCarros[j].length; i ++){
+                System.out.printf("El color del carro con número de serie %d es %s.\n", matrizCarros[j][i].getnumSerie(), matrizCarros[j][i].getColor());
+            }
+        }
+        System.out.println("---Fin matriz-----");
+        System.out.println("----Inicio ciclo vector---");
+        for(int i = 0; i < carros.length; i++){
+           System.out.printf("El color del carro con número de serie %d es %s.\n", carros[i].getnumSerie(), carros[i].getColor());
+        }
+        System.out.println("----Fin vector---");
     }
 
     public static String numeroSuerte()
