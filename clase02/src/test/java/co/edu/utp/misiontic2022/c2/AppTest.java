@@ -37,7 +37,7 @@ public class AppTest
     //@DisplayName("10 km/h es igual a 2.78 m/s")
     public void testVelocidad(){
         //App App_test = new App(); // No necesario al instanciar en beforeAll.
-        assertEquals(2.78, App_test.velocidad("10"), 0.01, "10 km/h es igual a 2.77 m/s");
+        assertEquals(2.78, App.velocidad("10"), 0.01, "10 km/h es igual a 2.77 m/s");
     }
 
     @ParameterizedTest(name = "{0} en km/h = {1} en m/s")

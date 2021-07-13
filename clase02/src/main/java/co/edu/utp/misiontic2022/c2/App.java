@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
  */
 public class App 
 {
-    public void main( String[] args ) throws Exception
+    public static void main( String[] args ) throws Exception
     {
         System.out.println( "Hello World!" );
         //String luckyNumber = numeroSuerte();
@@ -44,6 +44,9 @@ public class App
         // vehiculo vehicle = new vehiculo("Verde", 12345);
         // carro carro2 = new carro("Morado", 6789);
         // System.out.printf("El color del carro 2 con número de serie %d es: %s\n", carro2.getnumSerie(), carro2.getColor());
+        carroMecanico Toyota = new carroMecanico();
+        Toyota.setcapacidadTanque(45);
+        System.out.println("La capacidad del tanque es: " + Toyota.getcapacidadTanque());
     }
 
     public static String numeroSuerte()
@@ -99,7 +102,7 @@ public class App
        return num_str2;
     }
 
-    public double ingVelocidad()
+    public static double ingVelocidad()
     {
     //    Scanner sc = new Scanner(System.in);
     //    System.out.println("Ingrese velocidad en km/h");
@@ -109,7 +112,7 @@ public class App
        return vel_ms;
     }
 
-    public double velocidad(String vel_kmh_str){
+    public static double velocidad(String vel_kmh_str){
        int vel_kmh = Integer.valueOf(vel_kmh_str);
        double vel_ms = vel_kmh * (1000/3600.0);
        return vel_ms;
