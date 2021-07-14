@@ -1,11 +1,11 @@
 package co.edu.utp.misiontic2022.c2;
 
-public class carroMecanico implements Imecanico {
+public class CarroMecanico implements Imecanico {
     private Integer capacidadTanque;
     private Integer cambioAceite;
     private Double emisiones;
 
-    public carroMecanico(){
+    public CarroMecanico(){
 
     }
 

@@ -1,16 +1,16 @@
 package co.edu.utp.misiontic2022.c2;
 
-public class vehiculo {
+public class Vehiculo {
     private String color = "Azul";
     private Integer numSerie;
-    private colorEstandar colorEstandar;
+    private ColorEstandar colorEstandar;
     
-    public vehiculo()
+    public Vehiculo()
     {
         
     }
 
-    public vehiculo(String color, int numSerie)
+    public Vehiculo(String color, int numSerie)
     {
         this.color = color;
         this.numSerie = numSerie;
@@ -26,12 +26,12 @@ public class vehiculo {
         return color;
     }
 
-    public void setcolorEstandar(colorEstandar colorEs)
+    public void setcolorEstandar(ColorEstandar colorEs)
     {
         this.colorEstandar = colorEs; 
     }
     
-    public colorEstandar getcolorEstandar()
+    public ColorEstandar getcolorEstandar()
     {
         return this.colorEstandar;
     }

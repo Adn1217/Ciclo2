@@ -1,12 +1,12 @@
 package co.edu.utp.misiontic2022.c2;
 
-public class carro extends vehiculo { //Hereda de la clase vehiculo.
+public class Carro extends Vehiculo { //Hereda de la clase vehiculo.
     private Integer cilindraje;    
 
-    public carro(){
+    public Carro(){
     }
     
-    public carro(String color, Integer numSerie){
+    public Carro(String color, Integer numSerie){
         super(color, numSerie);
     }
 

@@ -1,6 +1,6 @@
 package co.edu.utp.misiontic2022.c2;
 
-public enum colorEstandar {
+public enum ColorEstandar {
    Rojo,
    Verde,
    Negro,

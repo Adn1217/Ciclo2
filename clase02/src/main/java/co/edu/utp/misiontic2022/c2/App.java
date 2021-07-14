@@ -41,29 +41,29 @@ public class App
         // carro carro = new carro(); carro.setCilindraje(25);
         // System.out.printf("El cilindraje del carro es: %d\n", carro.getCilindraje());
         // System.out.printf("El color del carro es: %s\n", carro.getColor());
-        vehiculo vehicle = new vehiculo("Verde", 12345);
-        carro carro2 = new carro("Morado", 6789);
+        Vehiculo vehicle = new Vehiculo("Verde", 12345);
+        Carro carro2 = new Carro("Morado", 6789);
         System.out.printf("El color del carro 2 con número de serie %d es: %s\n", carro2.getnumSerie(), carro2.getColor());
 
-        carro carro3 = new carro("Rojo", 7898);
-        carro3.setcolorEstandar(colorEstandar.GrisMedellín);
+        Carro carro3 = new Carro("Rojo", 7898);
+        carro3.setcolorEstandar(ColorEstandar.GrisMedellín);
         System.out.printf("El color estandar del carro con número de serie %d es: %s\n", carro3.getnumSerie(), carro3.getcolorEstandar());
-        carroMecanico Toyota = new carroMecanico();
+        CarroMecanico Toyota = new CarroMecanico();
 
         Toyota.setcapacidadTanque(45);
         System.out.println("La capacidad del tanque es: " + Toyota.getcapacidadTanque());
 
-        carro[] carros = new carro[3];
-        carros[0] = new carro("Violeta", 4563);
-        carros[1] = new carro("Gris", 7894);
-        carros[2] = new carro("Negro", 7845);
+        Carro[] carros = new Carro[3];
+        carros[0] = new Carro("Violeta", 4563);
+        carros[1] = new Carro("Gris", 7894);
+        carros[2] = new Carro("Negro", 7845);
 
-        carro[][] matrizCarros = new carro[2][1]; //No importa el tamaño de la instancia si se va a modificar después, se instancia con 2x1.
-        matrizCarros[0] = new carro[1]; //1era fila 1x1
-        matrizCarros[1] = new carro[2]; //2da fila 1x2
-        matrizCarros[0][0] = new carro("Verde", 8653);
-        matrizCarros[1][0] = new carro("Rojo", 6587);
-        matrizCarros[1][1] = new carro("Azul", 8743);
+        Carro[][] matrizCarros = new Carro[2][1]; //No importa el tamaño de la instancia si se va a modificar después, se instancia con 2x1.
+        matrizCarros[0] = new Carro[1]; //1era fila 1x1
+        matrizCarros[1] = new Carro[2]; //2da fila 1x2
+        matrizCarros[0][0] = new Carro("Verde", 8653);
+        matrizCarros[1][0] = new Carro("Rojo", 6587);
+        matrizCarros[1][1] = new Carro("Azul", 8743);
         //Tamaño de matrizCarros queda [0]=1x1 [1]=1x2
 
         System.out.println("----Inicio ciclos matriz---");
