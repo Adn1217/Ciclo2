@@ -38,13 +38,14 @@ public class App
         // System.out.printf("Valor del contador %s es: %d\n", mpc_2.getNombre(), mpc_2.getContador());
         // mpc.setContador(10);
         // System.out.printf("Valor del contador %s es: %d\n", mpc.getNombre(), mpc.getContador());
+
         // carro carro = new carro(); carro.setCilindraje(25);
         // System.out.printf("El cilindraje del carro es: %d\n", carro.getCilindraje());
         // System.out.printf("El color del carro es: %s\n", carro.getColor());
-        Vehiculo vehicle = new Vehiculo("Verde", 12345);
-        Carro carro2 = new Carro("Morado", 6789);
-        System.out.printf("El color del carro 2 con número de serie %d es: %s\n", carro2.getnumSerie(), carro2.getColor());
-
+        // Vehiculo vehicle = new Vehiculo("Verde", 12345);
+        // Carro carro2 = new Carro("Morado", 6789);
+        // System.out.printf("El color del carro 2 con número de serie %d es: %s\n", carro2.getnumSerie(), carro2.getColor());
+        
         Carro carro3 = new Carro("Rojo", 7898);
         carro3.setcolorEstandar(ColorEstandar.GrisMedellín);
         System.out.printf("El color estandar del carro con número de serie %d es: %s\n", carro3.getnumSerie(), carro3.getcolorEstandar());
@@ -64,7 +65,7 @@ public class App
         matrizCarros[0][0] = new Carro("Verde", 8653);
         matrizCarros[1][0] = new Carro("Rojo", 6587);
         matrizCarros[1][1] = new Carro("Azul", 8743);
-        //Tamaño de matrizCarros queda [0]=1x1 [1]=1x2
+        // Tamaño de matrizCarros queda [0]=1x1 [1]=1x2
 
         System.out.println("----Inicio ciclos matriz---");
         for (int j = 0; j < matrizCarros.length; j++){ //Número de filas.
