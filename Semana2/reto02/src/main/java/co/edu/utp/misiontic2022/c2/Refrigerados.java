@@ -1,7 +1,7 @@
 package co.edu.utp.misiontic2022.c2;
 
 public class Refrigerados extends ProductosAlimentarios {
-    Integer TEMPERATURA = 10;
+    static final Integer TEMPERATURA = 10;
     Integer temperatura;
     
     

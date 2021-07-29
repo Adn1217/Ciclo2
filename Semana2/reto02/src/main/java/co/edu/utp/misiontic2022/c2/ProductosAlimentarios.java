@@ -1,9 +1,9 @@
 package co.edu.utp.misiontic2022.c2;
 
 public class ProductosAlimentarios {
-    Double PRECIO_BASE = 80.0;
-    Integer PESO_BASE = 5;
-    char TIPO_ALIMENTO = 'N';
+    static final Double PRECIO_BASE = 80.0;
+    static final Integer PESO_BASE = 5;
+    static final char TIPO_ALIMENTO = 'N';
     Double precio_base;
     Integer peso_base;
     char tipo_alimento;

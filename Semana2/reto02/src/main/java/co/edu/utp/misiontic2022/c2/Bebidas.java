@@ -2,7 +2,7 @@ package co.edu.utp.misiontic2022.c2;
 
 public class Bebidas extends ProductosAlimentarios{
     
-    char LUGAR_ORIGEN = 'N';
+    static final char LUGAR_ORIGEN = 'N';
     char lugarOrigen;
 
     public Bebidas(){
