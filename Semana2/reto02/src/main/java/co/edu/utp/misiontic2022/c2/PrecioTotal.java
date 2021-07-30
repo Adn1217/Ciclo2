@@ -46,7 +46,7 @@ public class PrecioTotal {
 
     public void mostrarTotal(){
         System.out.println("El precio total de los Productos Alimentarios es de " + tProductosAlimentarios);
-        System.out.println("El precio total de las bebidas es de "+ tBebidas);
-        System.out.println("El precio total de los refrigerados es de "+ tRefrigerados);
+        System.out.println("La suma del precio de las Bebidas es de "+ tBebidas);
+        System.out.println("La suma del precio de los Refrigerados es de "+ tRefrigerados);
     }
 }
