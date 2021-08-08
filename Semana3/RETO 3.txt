@@ -1,0 +1,36 @@
+--Reto 3 ejercicio 1--
+SELECT  Fecha AS "Fecha Compra", 
+	ID_Compra AS "Cod. Compra", 
+	Proveedor AS "Nombre Proveedor", 
+	Pagado 
+FROM Compra 
+ORDER BY ID_Compra DESC 
+LIMIT 10 ;
+
+--Reto 3 ejercicio 2--
+SELECT Pr.Fecha_Inicio AS "Fec Inicio", Pr.Constructora AS "Nombre Constructora", Pr.Ciudad AS "Nombre Ciudad",
+		Li.Nombre||" "|| Li.Primer_Apellido AS "Nombre Lider", 
+		Tp.Codigo_tipo AS "Cod. Tipo", Tp.Estrato
+FROM Proyecto Pr 
+INNER JOIN Lider Li ON Pr.ID_Lider = Li.ID_Lider 
+INNER JOIN Tipo Tp ON Pr.ID_Tipo = Tp.ID_Tipo 
+WHERE (Pr.Fecha_Inicio >= '2019-09-01') AND (Pr.Fecha_Inicio <= '2019-09-09') AND (Pr.Ciudad = 'Pereira');
+
+--Reto 3 ejercicio 3--
+SELECT COUNT(p.ID_Proyecto) AS "Numero Proyectos" FROM Proyecto p 
+WHERE ((p.Fecha_Inicio >= "2019-12-12") 
+AND NOT EXISTS(SELECT 1 FROM Lider l WHERE (l.ID_Lider = p.ID_Lider) AND (l.ID_Lider = 6))
+AND NOT EXISTS(SELECT 1 FROM Compra c WHERE (c.ID_Proyecto = p.ID_Proyecto) AND (c.ID_MaterialConstruccion = 1)
+AND EXISTS(SELECT 1 FROM Compra c WHERE (c.ID_Proyecto = p.ID_Proyecto) AND (c.ID_MaterialConstruccion = 7))));
+
+--Reto 3 ejercicio 4--
+SELECT SUBSTR(Nombre,1,1)|| SUBSTR(Primer_Apellido,1,1)|| SUBSTR(Segundo_Apellido,1,1) AS 'Abrev'
+FROM Lider 
+
+--Reto 3 ejercicio 5--
+SELECT Pr.Constructora, SUM(Li.Salario) AS "Salario Lider" 
+FROM Proyecto Pr
+INNER JOIN Lider Li ON Pr.ID_Lider = Li.ID_Lider 
+GROUP BY Pr.Constructora 
+HAVING "Salario Lider" > 31000000 AND "Salario Lider" < 34000000
+ORDER BY Pr.Constructora ASC ;
