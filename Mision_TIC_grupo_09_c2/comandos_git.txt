@@ -1,0 +1,14 @@
+# Inicializar archivos.
+git init
+
+# cargar los archivos
+git add .
+
+# crear el primer commit del proyecto.
+git commit -m 'Inicio de proyecto ciclo 2 java'
+
+git remote add origin https://github.com/IsraelArbona/Mision_TIC_grupo_09_c2.git
+
+# realizamos el push al repositorio.
+git push -u origin master
+
