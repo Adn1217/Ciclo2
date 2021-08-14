@@ -1,8 +1,21 @@
 {
 	"folders": [
 		{
-			"path": "clase01"
+			"path": "clase02"
+		},
+		{
+			"name": "reto01",
+			"path": "Semana1\\reto01"
+		},
+		{
+			"name": "reto02",
+			"path": "Semana2\\reto02"
+		},
+		{
+			"path": "Semana4\\Reto4-G47_Plantilla"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
 }

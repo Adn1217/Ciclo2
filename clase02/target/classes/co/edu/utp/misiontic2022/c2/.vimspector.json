@@ -5,10 +5,10 @@
       "adapter": "vscode-java",
       "configuration": {
         "request": "attach",
-        "hostName": "127.0.0.1" #"${host}",
+        "hostName": "${host}",
         "port": "${port}",
         "sourcePaths": [
-          "${workspaceRoot}/src/main/java",
+          "${workspaceRoot}/src/main/java",	
           "${workspaceRoot}/src/test/java"
         ]
       }

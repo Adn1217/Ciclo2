@@ -309,5 +309,92 @@ public class DBManager implements AutoCloseable {
 
         return maximo;
     }
+
+    public Book update(int id, String title, String isbn, int year) throws SQLException {
+        Book myBook = null;
+
+        connect();
+        Connection conn = this.connection;
+        PreparedStatement stmt = null;
+
+        try {
+            myBook = new Book(
+                id,
+                title,
+                isbn,
+                year
+            );
+
+            String sql = "UPDATE books SET title = ?, isbn = ?, years = ? WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, myBook.getTitle());
+            stmt.setString(2, myBook.getIsbn());
+            stmt.setInt(3, myBook.getYear());
+            stmt.setInt(4, myBook.getId());
+
+            stmt.executeUpdate();
+        } finally{
+            if (stmt != null){
+                stmt.close();
+            }
+            if (conn != null){
+                conn.close();
+            }
+        }
+
+        return myBook;
+    }
+
+    public String deleteString(int id) throws SQLException {
+        String result = "";
+
+        connect();
+        Connection conn = this.connection;
+        PreparedStatement stmt = null;
+
+        try {
+            String sql = "DELETE FROM books WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            stmt.executeUpdate();
+            result = "Libro eliminado correctamente ";
+
+        } finally {
+            if (stmt != null){
+                stmt.close();
+            }
+            if (conn != null){
+                conn.close();
+            }
+        }
+        return result;
+    }
+
+    public boolean delete(int id) throws SQLException {
+        boolean result = false;
+
+        connect();
+        Connection conn = this.connection;
+        PreparedStatement stmt = null;
+
+        try {
+            String sql = "DELETE FROM books WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            stmt.executeUpdate();
+            result = true;
+
+        } finally {
+            if (stmt != null){
+                stmt.close();
+            }
+            if (conn != null){
+                conn.close();
+            }
+        }
+        return result;
+    }
 }
 

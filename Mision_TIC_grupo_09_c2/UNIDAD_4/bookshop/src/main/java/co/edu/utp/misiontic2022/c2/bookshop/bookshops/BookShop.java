@@ -52,10 +52,10 @@ public class BookShop {
                         agregarLibros();
                         break;
                     case 6:
-                        // modificarLibros();
+                        modificarLibros();
                         break;
                     case 7:
-                        // eliminarLibros();
+                        eliminarLibros();
                         break;
                     default:
                         System.err.println("Opción no válida");
@@ -190,6 +190,85 @@ public class BookShop {
             System.out.println("Código de error: " + ex.getErrorCode());
         }
 
+    }
+
+    private void modificarLibros() throws IOException {
+        System.out.println("");
+        System.out.println("==========================================");
+        System.out.println(" Modificar libros");
+        System.out.println("==========================================");
+
+        try (var manager = new DBManager()) {
+            System.out.println("Ingrese el ISBN a modificar: ");
+            var isbn = input.readLine();
+
+            Book book = manager.searchBook(isbn);
+
+            if (book != null){
+                var mid = book.getId();
+                System.out.println("Modificar el TITLE del libro " + book.getTitle() + ": ");
+                var mtitle = input.readLine();
+                System.out.println("Modificar el ISBN del libro " + book.getIsbn() + ": ");
+                var misbn = input.readLine();
+                System.out.println("Modificar el YEAR del libro " + book.getYear() + ": ");
+                var myear = Integer.valueOf(input.readLine());
+
+                Book mBook = manager.update(mid, mtitle, misbn, myear);
+
+                if (mBook != null){
+                    System.out.println("Libro modificado correctamente " + mBook);
+                } else {
+                    System.out.println("Libro no fue modificado");
+                }
+
+            } else {
+                System.out.println("Libro no encontrado . " + isbn);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Excepción SQL: " + ex.getMessage());
+            System.out.println("Estado SQL: " + ex.getSQLState());
+            System.out.println("Código de error: " + ex.getErrorCode());
+        }
+    }
+
+    private void eliminarLibros() throws IOException {
+        System.out.println("");
+        System.out.println("==========================================");
+        System.out.println(" Eliminar libros");
+        System.out.println("==========================================");
+
+        try (var manager = new DBManager()) {
+            System.out.println("Ingrese ISBN del libro: ");
+            var isbn = input.readLine();
+
+            Book book = manager.searchBook(isbn);
+
+            if (book != null){
+
+                System.out.println("Desea eliminar el libro " + book.getTitle() + " (Y/N)");
+                var confirmar = input.readLine();
+
+                if (confirmar.equals("Y")){
+                    var rs = manager.delete(book.getId());
+                    if (rs){
+                        System.out.println("Libro eliminado correctamente. ");
+                    } else {
+                        System.out.println("Libro no fue eliminado. ");
+                    }
+
+                }
+            } else {
+                System.out.println("Libro no encontrado. ");
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Excepción SQL: " + ex.getMessage());
+            System.out.println("Estado SQL: " + ex.getSQLState());
+            System.out.println("Código de error: " + ex.getErrorCode());
+        }
     }
 
 
