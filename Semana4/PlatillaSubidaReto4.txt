@@ -1,0 +1,386 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.sql.PreparedStatement;
+
+// Util (No modificar)
+class JDBCUtilities {
+    private static final String DATABASE_LOCATION = "ProyectosConstruccion.db";
+
+    public static Connection getConnection() throws SQLException {
+        String url = "jdbc:sqlite:"+DATABASE_LOCATION;
+
+        return DriverManager.getConnection(url);
+    }
+}
+
+// Remplace en adelante por las clases de sus archivos .java
+
+// Vista
+public class ViewRequerimientos {
+    private static final ControllerRequerimientos controlador = new ControllerRequerimientos();
+
+    public static void requerimiento1(){
+        try{
+            ArrayList<Requerimiento_1> listaRequerimiento_1;
+            listaRequerimiento_1 = controlador.consultaRequerimiento_1();
+            for(Requerimiento_1 requerimiento_1: listaRequerimiento_1){
+                System.out.println(
+                    requerimiento_1.getFechaCompra() + " " +
+                    requerimiento_1.getCodCompra() + " " +
+                    requerimiento_1.getNombreProveedor() + " " +
+                    requerimiento_1.getPagado()
+                );
+            }
+            }catch(Exception e){
+                System.err.println(e);
+            }
+    }
+    
+    public static void requerimiento2(){
+        try{
+            ArrayList<Requerimiento_2> listaRequerimiento_2;
+            listaRequerimiento_2 = controlador.consultaRequerimiento_2();
+            for(Requerimiento_2 requerimiento_2: listaRequerimiento_2){
+                System.out.println(
+                    requerimiento_2.getFechaInicio() + " " +
+                    requerimiento_2.getCiudad() + " " +
+                    requerimiento_2.getConstructora() + " " +
+                    requerimiento_2.getLider() + " " +
+                    requerimiento_2.getTipo() + " " +
+                    requerimiento_2.getEstrato()
+                );
+            }
+            }catch(Exception e){
+                System.err.println(e);
+            }
+    }
+
+    public static void requerimiento3(){
+        try{
+            ArrayList<Requerimiento_3> listaRequerimiento_3;
+            listaRequerimiento_3 = controlador.consultaRequerimiento_3();
+            for(Requerimiento_3 requerimiento_3: listaRequerimiento_3){
+                System.out.println(
+                    requerimiento_3.getAbrev()
+                );
+            }
+            }catch(Exception e){
+                System.err.println(e);
+            }
+    }
+}
+
+// Controlador
+public class ControllerRequerimientos {
+    private final RequerimientoDao_1 requerimientoDao_1 = new RequerimientoDao_1();
+
+    private final RequerimientoDao_2 requerimientoDao_2 = new RequerimientoDao_2();
+
+    private final RequerimientoDao_3 requerimientoDao_3 = new RequerimientoDao_3();
+
+    public ArrayList<Requerimiento_1> consultaRequerimiento_1() throws SQLException{
+        return this.requerimientoDao_1.requerimiento1();
+    }
+    
+    public ArrayList<Requerimiento_2> consultaRequerimiento_2() throws SQLException{
+        return this.requerimientoDao_2.requerimiento2();
+    }
+    
+    public ArrayList<Requerimiento_3> consultaRequerimiento_3() throws SQLException{
+        return this.requerimientoDao_3.requerimiento3();
+    }
+}
+
+
+// Modelo
+// VO
+public class Requerimiento_1 {
+    //Atributos
+    private String fechaCompra;
+    private Integer codCompra;
+    private String nombreProveedor;
+    private String pagado;
+
+    public Requerimiento_1(){
+
+    }
+
+    public Requerimiento_1(String fechaCompra, Integer codCompra, String nombreProveedor, String pagado){
+
+        this.fechaCompra = fechaCompra;
+        this.codCompra = codCompra;
+        this.nombreProveedor = nombreProveedor;
+        this.pagado = pagado;
+    }
+
+    public String getFechaCompra() {
+        return fechaCompra;
+    }
+
+    public String getPagado() {
+        return pagado;
+    }
+
+    public void setPagado(String pagado) {
+        this.pagado = pagado;
+    }
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
+
+    public Integer getCodCompra() {
+        return codCompra;
+    }
+
+    public void setCodCompra(Integer codCompra) {
+        this.codCompra = codCompra;
+    }
+
+    public void setFechaCompra(String fechaCompra) {
+        this.fechaCompra = fechaCompra;
+    }
+    
+}
+public class Requerimiento_2 {
+    //Atributos
+    private String fechaInicio;
+    private String constructora;
+    private String ciudad;
+    private String lider;
+    private String tipo;
+    private Integer estrato;
+
+    public Requerimiento_2(){
+
+    }
+
+    public Requerimiento_2(String fechaInicio, String constructora, String ciudad, String lider, String tipo, Integer estrato){
+
+        this.setLider(lider);
+        this.setFechaInicio(fechaInicio);
+        this.setCiudad(ciudad);
+        this.setLider(lider);
+        this.setEstrato(estrato);
+/*
+        this.fechaInicio = fechaInicio;
+        this.iad = c = udad;
+      this.lider = lider;
+        this.tipo = tipo;
+        this.setEstrato(estrato); 
+*/
+    }
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getLider() {
+        return lider;
+    }
+
+    public void setLider(String lider) {
+        this.lider = lider;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+     
+    public Integer getEstrato() {
+        return estrato;
+    }
+
+    public void setEstrato(Integer estrato) {
+        this.estrato = estrato;
+    }
+    
+    public String getConstructora() {
+         return constructora;
+    }
+
+    public void setConstructora(String constructora) {
+        this.constructora = constructora;
+    }
+}
+
+public class Requerimiento_3 {
+    //Atributos
+   private String Abrev;
+
+   public Requerimiento_3(){
+
+   }
+
+   public Requerimiento_3(String Abrev){
+       this.setAbrev(Abrev);
+   }
+
+    public String getAbrev() {
+        return Abrev;
+    }
+
+    public void setAbrev(String abrev) {
+        this.Abrev = abrev;
+    }
+
+}
+
+// DAO
+public class RequerimientoDao_1 {
+    
+    public ArrayList<Requerimiento_1> requerimiento1 () throws SQLException{
+        
+        ArrayList<Requerimiento_1> respuesta = new ArrayList<Requerimiento_1>();
+        Connection conexion = JDBCUtilities.getConnection();
+
+        try{
+            //Preparar la consulta y su conexión.
+            String consulta = "Select c.Fecha as \"Fecha Compra\", c.ID_Compra as \"Cod. Compra\", c.Proveedor as \"Nombre Proveedor\", c.Pagado From Compra as c "+
+            "ORDER BY \"Cod. Compra\" DESC LIMIT 10";
+            PreparedStatement statement = conexion.prepareStatement(consulta);
+            ResultSet resultSet = statement.executeQuery();
+
+            //Recorrer los registros en los VO especificos.
+
+            while(resultSet.next()){
+                Requerimiento_1 requerimiento_1 = new Requerimiento_1();
+                requerimiento_1.setFechaCompra(resultSet.getString("Fecha Compra"));
+                requerimiento_1.setCodCompra(resultSet.getInt("Cod. Compra"));
+                requerimiento_1.setNombreProveedor(resultSet.getString("Nombre Proveedor"));
+                requerimiento_1.setPagado(resultSet.getString("Pagado"));
+                respuesta.add(requerimiento_1);
+
+            }
+
+            if (resultSet != null){
+                resultSet.close();
+            }
+
+            if (statement != null){
+                statement.close();
+            }
+        }catch(SQLException e){
+            System.out.println("Error de consulta SQL Requerimiento_1 -> " + e);
+        }finally{
+
+            if (conexion != null){
+                conexion.close();
+            }
+        }
+        return respuesta;
+    }
+}
+
+public class RequerimientoDao_2 {
+
+    public ArrayList<Requerimiento_2> requerimiento2 () throws SQLException{
+        
+        ArrayList<Requerimiento_2> respuesta = new ArrayList<Requerimiento_2>();
+        Connection conexion = JDBCUtilities.getConnection();
+
+        try{
+            //Preparar la consulta y su conexión.
+            String consulta = "SELECT Fecha_Inicio as \"Fec Inicio\", Constructora as \"Nombre Constructora\", Ciudad as \"Nombre Ciudad\", T1.NombreApellido as \"Nombre Lider\", T2.Codigo_Tipo as \"Cod. Tipo\", T2.Estrato  FROM Proyecto as Pr LEFT JOIN (SELECT Li.ID_Lider, Li.Nombre, Li.Segundo_Apellido, (Li.Nombre || ' ' || Li.Segundo_Apellido) as NombreApellido FROM Lider as Li) T1 on Pr.ID_Lider = T1.ID_Lider LEFT JOIN (SELECT Ti.ID_Tipo, Ti.Codigo_Tipo, Ti.Estrato FROM Tipo as Ti) T2 on Pr.ID_Tipo = T2.ID_Tipo WHERE Fecha_Inicio BETWEEN '2019-09-01' AND '2019-09-09' AND Ciudad = 'Pereira'";
+            PreparedStatement statement = conexion.prepareStatement(consulta);
+            ResultSet resultSet = statement.executeQuery();
+
+            //Recorrer los registros en los VO especificos.
+
+            while(resultSet.next()){
+                Requerimiento_2 requerimiento_2 = new Requerimiento_2();
+                requerimiento_2.setFechaInicio(resultSet.getString("Fec Inicio"));
+                requerimiento_2.setCiudad(resultSet.getString("Nombre Ciudad"));
+                requerimiento_2.setConstructora(resultSet.getString("Nombre Constructora"));
+                requerimiento_2.setLider(resultSet.getString("Nombre Lider"));
+                requerimiento_2.setTipo(resultSet.getString("Cod. Tipo"));
+                requerimiento_2.setEstrato(resultSet.getInt("estrato"));
+                respuesta.add(requerimiento_2);
+
+            }
+
+            if (resultSet != null){
+                resultSet.close();
+            }
+
+            if (statement != null){
+                statement.close();
+            }
+        }catch(SQLException e){
+            System.out.println("Error de consulta SQL Requerimiento_2 -> " + e);
+        }finally{
+
+            if (conexion != null){
+                conexion.close();
+            }
+        }
+        return respuesta;
+    }
+    
+}
+
+public class RequerimientoDao_3 {
+
+    public ArrayList<Requerimiento_3> requerimiento3 () throws SQLException{
+        
+        ArrayList<Requerimiento_3> respuesta = new ArrayList<Requerimiento_3>();
+        Connection conexion = JDBCUtilities.getConnection();
+
+        try{
+            //Preparar la consulta y su conexión.
+            String consulta = "SELECT (SUBSTR(Li.Nombre,1,3) || SUBSTR(Li.Primer_Apellido,1,3) || SUBSTR(Li.Segundo_Apellido,1,3)) as Abrev FROM Lider as Li";
+
+            PreparedStatement statement = conexion.prepareStatement(consulta);
+            ResultSet resultSet = statement.executeQuery();
+
+            //Recorrer los registros en los VO especificos.
+
+            while(resultSet.next()){
+                Requerimiento_3 requerimiento_3 = new Requerimiento_3();
+                requerimiento_3.setAbrev(resultSet.getString("Abrev"));
+                respuesta.add(requerimiento_3);
+
+            }
+
+            if (resultSet != null){
+                resultSet.close();
+            }
+
+            if (statement != null){
+                statement.close();
+            }
+        }catch(SQLException e){
+            System.out.println("Error de consulta SQL Requerimiento_3 -> " + e);
+        }finally{
+
+            if (conexion != null){
+                conexion.close();
+            }
+        }
+        return respuesta;
+    }
+    
+}
