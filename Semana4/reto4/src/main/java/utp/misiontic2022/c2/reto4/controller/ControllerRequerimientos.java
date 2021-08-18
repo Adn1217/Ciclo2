@@ -25,6 +25,10 @@ public class ControllerRequerimientos {
         return this.requerimientoDao_2.requerimiento2();
     }
     
+    public ArrayList<Requerimiento_2> consultaRequerimiento_2(String DateIni, String DateFin, String campoCiudad) throws SQLException{
+        return this.requerimientoDao_2.requerimiento2(DateIni, DateFin, campoCiudad);
+    }
+    
     public ArrayList<Requerimiento_3> consultaRequerimiento_3() throws SQLException{
         return this.requerimientoDao_3.requerimiento3();
     }
