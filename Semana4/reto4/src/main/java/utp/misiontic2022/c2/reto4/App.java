@@ -1,5 +1,7 @@
 package utp.misiontic2022.c2.reto4;
 
+import utp.misiontic2022.c2.reto4.view.FormReqBusqueda;
+import utp.misiontic2022.c2.reto4.view.FormRequerimientos;
 import utp.misiontic2022.c2.reto4.view.ViewRequerimientos;
 
 /**
@@ -10,6 +12,7 @@ public class App
 {
     public static void main( String[] args )
     {
+        /*
         System.out.println("\nInicio...");
         System.out.println("Requerimiento 1");
         System.out.println("Fecha Compra  Cod. Compra  Nombre Proveedor \t Pagado");
@@ -24,6 +27,9 @@ public class App
         System.out.println("Requerimiento 3");
         System.out.println("Abrev");
         ViewRequerimientos.requerimiento3();
+        */
+        //new FormRequerimientos().setVisible(true);
+        new FormReqBusqueda().setVisible(true);
     }
 }
 

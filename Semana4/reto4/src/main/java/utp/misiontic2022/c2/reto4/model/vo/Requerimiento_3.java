@@ -16,8 +16,8 @@ public class Requerimiento_3 {
         return Abrev;
     }
 
-    public void setAbrev(String abrev) {
-        this.Abrev = abrev;
+    public void setAbrev(String Abrev) {
+        this.Abrev = Abrev;
     }
 
 }
